@@ -22,7 +22,7 @@ def index():
 @app.route("/scrape")
 def scrape():
     main_dict = mongo.db.main_dict
-    mars_data = scrape_mars.scrape()
+    mars_data = scrape_mars.scraper()
     main_dict.update({}, mars_data, upsert=True)
     return redirect("/", code=302)
 

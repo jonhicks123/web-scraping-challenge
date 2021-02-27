@@ -9,9 +9,9 @@ import requests
 def init_browser():
     executable_path = {"executable_path": "chromedriver.exe"}
     return Browser("chrome", **executable_path, headless=False)
-    driver= webdriver.Chrome()
+    #driver= webdriver.Chrome()
 
-def scrape():
+def scraper():
     browser = init_browser()
     main_dict = {}
 

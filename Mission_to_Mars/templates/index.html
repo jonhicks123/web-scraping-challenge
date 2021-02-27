@@ -17,7 +17,7 @@
     <div clas="container">
       <div class="jumbotron text-center">
         <h1>Mission to Mars</h1>
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <p><a class="btn btn-primary btn-lg" href="../scrape" role="button">Scrape New Data</a></p>
       </div>
       
       <div class="row">
@@ -29,21 +29,21 @@
     </br>
       <div class="row">
         <div class="col-md-12">
-          <h4>{mars.news_title}</h4>
-          <p>{mars.news_p}</p>
+          <h4 class="News Title">{{mars.news_title}}</h4>
+          <p>{{mars.news_p}}</p>
         </div>
         <div class="row">
             <div class="col-md-8 border">
               <h2 class=""><u>Featured Mars Image</u></h2> 
               </br>
-              <img class="col-md-12 border" src="{ mars.featured_image_path }" alt="Featured Mars Image">
+              <img class="col-md-12 border" src="{{mars.featured_image_path}}" alt="Featured Mars Image">
             </div>
             <div class="col-md-4">
               
               </br>
               <div class="card">
                 <h3>Mars Facts</h3>
-                  { mars.facts_table_html" | safe }
+                  {{ mars.facts_table_html | safe }}
               </div>
             </div>
         </div>
@@ -55,15 +55,15 @@
         </div>
         </br>
         <div class="row">       
-            {% for x in mars.hems %} 
+            {% for x in mars.hemisphere_images %} 
                 <div class="col-6 border">
                 </br>
                     <div>
-                        <img width="512 px" height="512 px" src="{{x.image_url}}">
+                        <img width="512 px" height="512 px" src="{{ x.image_url }}">
                     </div>
     
                     <div>
-                        <h4> {{x.title}} </h4>  
+                        <h4> {{ x.title }} </h4>  
                     </div>
                 
                 </div>
