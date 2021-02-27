@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body>
+    <div clas="container">
+      <div class="jumbotron text-center">
+        <h1>Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12">
+          <h2><u>Latest Mars News</u></h2>
+        </div>
+        
+      </div>
+    </br>
+      <div class="row">
+        <div class="col-md-12">
+          <h4>{mars.news_title}</h4>
+          <p>{mars.news_p}</p>
+        </div>
+        <div class="row">
+            <div class="col-md-8 border">
+              <h2 class=""><u>Featured Mars Image</u></h2> 
+              </br>
+              <img class="col-md-12 border" src="{ mars.featured_image_path }" alt="Featured Mars Image">
+            </div>
+            <div class="col-md-4">
+              
+              </br>
+              <div class="card">
+                <h3>Mars Facts</h3>
+                  { mars.facts_table_html" | safe }
+              </div>
+            </div>
+        </div>
+    <hr>
+        <div class="row">
+            <div class="col-md-8 offset-4">
+            <h2 class="align-items-center"><u>Mars hemispheres</u></h2>  
+            </div>
+        </div>
+        </br>
+        <div class="row">       
+            {% for x in mars.hems %} 
+                <div class="col-6 border">
+                </br>
+                    <div>
+                        <img width="512 px" height="512 px" src="{{x.image_url}}">
+                    </div>
+    
+                    <div>
+                        <h4> {{x.title}} </h4>  
+                    </div>
+                
+                </div>
+            {% endfor %}
+        </div> 
+          
+<hr>
+</body>
+</html>
+
+  
